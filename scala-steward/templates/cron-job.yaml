@@ -1,0 +1,26 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ include "scala-steward.fullname" . }}
+  labels:
+    {{- include "scala-steward.labels" . | nindent 4 }}
+spec:
+  schedule: "{{- .Values.schedule -}}"
+  concurrencyPolicy: "{{- .Values.concurrencyPolicy -}}"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: "{{- include "scala-steward.fullname" . -}}"
+            image: "{{- .Values.image.repository -}}:{{- .Values.image.tag -}}"
+            imagePullPolicy: "{{- .Values.image.pullPolicy -}}"
+            resources:
+{{ .Values.resources | toYaml | indent 14 }}
+            args:
+            {{- range .Values.scalaStewardArgs }}
+            - {{ . }}
+            {{- end }}
+            {{- range .Values.additionalScalaStewardArgs }}
+            - {{ . }}
+            {{- end }}
