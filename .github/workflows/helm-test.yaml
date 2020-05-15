@@ -16,7 +16,7 @@ jobs:
         id: lint
         uses: helm/chart-testing-action@v1.0.0-rc.1
         with:
-          command: lint --chart-dirs scala-steward
+          command: lint --chart-dirs scala-steward --debug
 
       - name: Create kind cluster
         uses: helm/kind-action@v1.0.0-rc.1
