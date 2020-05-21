@@ -1,0 +1,15 @@
+apiVersion: v1
+entries:
+  scala-steward:
+  - apiVersion: v2
+    appVersion: 0.5.0
+    created: "2020-05-21T21:18:39.07302993Z"
+    description: A Helm chart for scala-steward
+    digest: 56c1b83977e7fd15d25df49bd08fb6cf416f80eb38418200315459ba1c08c5a5
+    icon: https://raw.githubusercontent.com/fthomas/scala-steward/master/data/images/scala-steward-logo-circle-0.png
+    name: scala-steward
+    type: application
+    urls:
+    - https://github.com/jsoref/scala-steward-helm-chart/releases/download/scala-steward-0.1.1/scala-steward-0.1.1.tgz
+    version: 0.1.1
+generated: "2020-05-21T21:18:38.640991549Z"
